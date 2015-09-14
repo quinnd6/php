@@ -1,0 +1,4 @@
+1	Aman	harry.30@gmail.com	   thatwasmypasswordy	this seems to be nice	
+2	Nick	Rockest@gmail.com	nickisnice	hey guys	
+3	This is a name	This is email	This is the password	This is some bio	
+4	SomeName	someone@example.com	someone	This is someone	

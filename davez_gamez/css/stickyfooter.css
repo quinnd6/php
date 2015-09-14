@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+    
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 142px; /* .push must be the same height as .footer */
+    background:#00cc00;
+}
+
+#header
+{
+    width:100%;
+    height: 100px;
+    position: relative;
+    background-image: url(../images/davezgamez.jpg);
+    background-repeat: no-repeat;
+    border-bottom: 2px solid #000000;
+    border-top: 2px solid #000000;
+    background-color:#c2263b;
+   
+    
+}
+
+#header a
+{
+    display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#header a:visited
+{
+    color: #000000;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#header a:hover
+{
+    color: #cc0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.horizlinks
+{
+    position: absolute;
+    top: 77px;
+    left: 180px;
+}
+
+.horizlinks ul
+{
+    margin: 0px;
+}
+
+.horizlinks li
+{
+    margin: 0px 15px 0px 0px;
+    list-style-type : none;
+    display: inline;
+}
+
+#horizontalnav
+{
+    width: 100%;
+    height: 30px;
+    position:relative;
+    background-color: #F2D6AF;
+    border-bottom: 2px solid #000000;
+}
+
+.navlinks
+{
+    position: absolute;
+    top: 4px;
+    left: 10px;
+}
+
+.navlinks ul
+{
+    margin: auto;
+}
+
+.navlinks li
+{
+    margin: 0px 18px 0px 0px;
+    list-style-type: none;
+    display: inline;
+    
+}
+
+.navlinks li a
+{
+    color: #000000;
+    padding: 5px 12px 7px;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: verdana;
+}
+
+.navlinks li a:hover
+{
+    color: #ffffff;
+    background-color: #ff9900;
+    text-decoration: underline;
+}
+
+#header p
+{
+    color: #000000;
+    font-family: Arial;
+    font-weight: bold;
+    
+}
+
+
+pre {
+    font-size: 16px;
+    font-family: "Times New Roman", Times, serif;
+    padding-left:10px;
+}
+
+/*
+
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+
+*/
