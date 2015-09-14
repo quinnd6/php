@@ -1,3 +1,8 @@
+<?php
+//Script Error Reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
 <?php 
     include_once ('core/class.ManageDatabase.php');
     
@@ -5,7 +10,7 @@
     $gameName = $_GET['gameSearchName'];
     $table_name = 'products';
     $data = $init->searchItems($table_name, $gameName);
-
+   
        
 ?>
 
@@ -37,53 +42,15 @@ include_once( 'views/header.php' );
 <?php
       if($data!==0)
       {
-          echo'<div id="page_title"><h2>Results in Games </h2></div>';
-        $init->printData($data,'games');
+          echo'<div id="page_title"><h2>Results </h2></div>';
+        $init->printData($data,'products');
         
       }
 ?>
 
- <?php
-        $table_name = 'consoles';
-        $data = $init->searchItems($table_name, $gameName);
-         if($data!==0)
-         {
-            echo'<div id="page_title"><h2>Results in Consoles </h2></div>';
-            $init->printData($data,'consoles');
-            
-         }
-       
- ?>
-    
-
-  <?php
-        $table_name = 'accessories';
-        $data = $init->searchItems($table_name, $gameName);
-         if($data!==0)
-         {
-            echo'<div id="page_title"><h2>Results in Accessories</h2></div>';
-            $init->printData($data,'accessories');
-            
-         }
-             
-  ?>
-
-
-<?php
-        $table_name = 'other';
-        $data = $init->searchItems($table_name, $gameName);
-        
-         if($data !== 0)
-         {
-            echo'<div id="page_title"><h2>Results in Other</h2></div>';
-            
-            $init->printData($data,'other');
-           
-         }
-             
-  ?>
-                                      
+ 
+                                     
     
 
 </div>
-<div id="footer"></div>
+<div id="footer">&COPY;2015</div>

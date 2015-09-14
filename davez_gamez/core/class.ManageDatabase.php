@@ -194,7 +194,7 @@ include_once 'core/class.Game.php';
        function searchItems($table_name,$item_name)
         {
             try {
-                $query = $this->link->prepare("SELECT id, picurl1, name, description ,price FROM ".$table_name." WHERE name like '%".$item_name."%'  or description like '%".$item_name."%'");
+                $query = $this->link->prepare("SELECT id, picurl1, product_name, details ,price FROM ".$table_name." WHERE product_name like '%".$item_name."%'  or details like '%".$item_name."%'");
                  $query->execute();
                 
                 

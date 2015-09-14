@@ -155,7 +155,7 @@ if(!isset($_SESSION["cart_array"])||count($_SESSION["cart_array"])<1){
            </form></td>';
        // $cartOutput .= '<td>'. $each_item['quantity'].'</td>';
         $cartOutput .= '<td>&euro;'. $priceTotal.'</td>';
-        $cartOutput .= '<td>' . $i . '<form action="cart.php" method="post"><input name="deleteBtn' . $item_id .'" type="submit" value="X" />
+        $cartOutput .= '<td><form action="cart.php" method="post"><input name="deleteBtn' . $item_id .'" type="submit" value="X" />
             <input name="index_to_remove" type="hidden" value="' . $i .'" />
                 </form></td>';
         $cartOutput .= '</tr>';
@@ -165,11 +165,11 @@ if(!isset($_SESSION["cart_array"])||count($_SESSION["cart_array"])<1){
     $cartTotal = "<div align='right'>Cart Total : &euro;". $cartTotal . "</div>";
     //Finish the Paypal Checkout Btn
     $pp_checkout_btn .= ' <input type="hidden" name="custom" value="'. $product_id_array . '">
-        <input type="hidden" name="notify_url" value="http://davezgamez.comuf.com/myonlinestore/storescripts/my_ipn.php">
-        <input type="hidden" name="return" value="http://davezgamez.comuf.com/myonlinestore/checkout_complete.php">
+        <input type="hidden" name="notify_url" value="http://davezgamez.byethost3.com/myonlinestore/storescripts/my_ipn.php">
+        <input type="hidden" name="return" value="http://davezgamez.byethost3.com/myonlinestore/checkout_complete.php">
         <input type="hidden" name="rm" value="2">
         <input type="hidden" name="cbt" value="Return to the Store">
-        <input type="hidden" name="cancel_return" value=http://davezgamez.comuf.com/myonlinestore/paypal_cancel.php">
+        <input type="hidden" name="cancel_return" value=http://davezgamez.byethost3.com/davez_gamez/">
         <input type="hidden" name="lc" value="US">
         <input type="hidden" name="currency_code" value="EUR">
         <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make Payments with Paypal - its fast, free and secure">
@@ -216,4 +216,4 @@ if(!isset($_SESSION["cart_array"])||count($_SESSION["cart_array"])<1){
                     </ul>
                 </div>
  </div>
-<div id="footer" </div> </div>
+<div id="footer"> </div> </div>
