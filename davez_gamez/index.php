@@ -19,25 +19,7 @@ include_once( 'views/header.php' );
              {
                   getPage('davez_gamez',  "description");
              }
-            /*if(isset($_GET['gamesid'])&&(isset($_GET['page'])))
-             {
-                  getPage('davez_gamez',  "gameDescription");
-             }
-             else if(isset($_GET['consolesid'])&&(isset($_GET['page'])))
-             {
-                  getPage('davez_gamez',  "consoleDescription");
-             }
-             
-             else if(isset($_GET['accessoriesid'])&&(isset($_GET['page'])))
-             {
-                  getPage('davez_gamez',  "accessoryDescription");
-             }
-             
-             else if(isset($_GET['othersId'])&&(isset($_GET['page'])))
-             {
-                  getPage('davez_gamez',  "otherDescription");
-             }
-             */
+            
            else if(isset($_GET['page']))
            {
                getPage('davez_gamez', $_GET['page'],  "home");
