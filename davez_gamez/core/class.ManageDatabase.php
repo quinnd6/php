@@ -269,7 +269,7 @@ include_once 'core/class.Game.php';
                             .htmlspecialchars($row['price'], ENT_HTML5, 'UTF-8', false) .'</div><div id ="link">Find out more</div> </div> </div>'.
                             ' <a href="&id='.htmlspecialchars($row['id']).
                             '"><div id = "image"> <img src="'.$row['picurl1'].
-                            '" alt="" height="'.($height/1.7) .
+                            '" alt="'.$row['product_name'].'" height="'.($height/1.7) .
                             '"/> </div></a> <hr>    ';
                      //echo '<div id = "image"> <img src="'.$row['picurl1'].'" alt="" border="3" height="'.($height/1.7) .'</div> ';
                    

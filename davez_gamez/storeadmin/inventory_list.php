@@ -1,3 +1,8 @@
+<?php
+//Script Error Reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
 <?php 
 session_start();
 if(!isset($_SESSION["manager"])){
@@ -19,11 +24,7 @@ if($existCount ==0){//evaluate the count
     exit();
 }
 ?>
-<?php
-//Script Error Reporting
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-?>
+
 <?php
 //Delete Item Question to Admin and Delete Product if they choose
 if (isset($_GET['deleteid'])) {
@@ -55,20 +56,28 @@ if (isset($_POST['product_name'])) {
 	$subcategory = mysqli_real_escape_string($connection,$_POST['subcategory']);
 	$details = mysqli_real_escape_string($connection,$_POST['details']);
 	// See if that product name is an identical match to another product in the system
-	$sql = mysqli_query($connection,"SELECT id FROM products WHERE product_name='$product_name' LIMIT 1");
+	/*$sql = mysqli_query($connection,"SELECT id FROM products WHERE product_name='$product_name' LIMIT 1");
 	$productMatch = mysqli_num_rows($sql); // count the output amount
         if ($productMatch > 0) {
             echo 'Sorry you tried to place a duplicate "Product Name" into the system, <a href="inventory_list.php">click here</a>';
             exit();
-	}
+	}*/
 	// Add this product into the database now
-	$sql = mysqli_query($connection,"INSERT INTO products (product_name, price, details, category, subcategory, date_added) 
-        VALUES('$product_name','$price','$details','$category','$subcategory',now())") or die (mysql_error());
+	//$sql = mysqli_query($connection,"INSERT INTO products (product_name, price, details, category, subcategory, date_added) 
+        //VALUES('$product_name','$price','$details','$category','$subcategory',now());") or die (mysql_error());
+        if(!(mysqli_query($connection,"INSERT INTO products (product_name, price, details, category, subcategory, date_added)  VALUES('$product_name','$price','$details','$category','$subcategory',now())"))) 
+                {
+    die (mysqli_error($connection));
+}
         $pid = mysqli_insert_id($connection);
+        //echo $pid;
 	// Place image in the folder 
 	$newname = "$pid.jpg";
 	move_uploaded_file( $_FILES['fileField']['tmp_name'], "../inventory_images/$newname");
-        $sql = mysqli_query($connection,"UPDATE PRODUCTS WHERE product_name=$product_name SET picurl1 = 'inventory_images/$newname'"); 
+        if(!(mysqli_query($connection,"UPDATE products SET picurl1='inventory_images/$pid.jpg' WHERE id='$pid';")))
+        {
+            die (mysqli_error($connection));
+        }
 	header("location: inventory_list.php"); 
         exit();
 }
@@ -95,20 +104,6 @@ if($productCount > 0){
 <!Doctype html>
 <html>
     <head>
-        <!--
-        <script type="text/javascript" language="javascript"> 
-
-
-function validateMyForm ( ) { 
-   var x = document.forms["myForm"]["product_name"].value;
-    if (x == null || x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-}
-    </script>
-        -->
-        
         <meta http-equiv ="Content-Type" content="text/html; charset=utf-8"/>
         <title>Inventory List</title>
         <link rel="stylesheet" href="../style/style.css" type="text/css" media="screen" />
@@ -191,5 +186,4 @@ function validateMyForm ( ) {
             <?php include_once("../template_footer.php"); ?>
         </div>
     </body>
-    
 </html>

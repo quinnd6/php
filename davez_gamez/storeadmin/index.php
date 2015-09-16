@@ -32,7 +32,7 @@ if($existCount ==0){//evaluate the count
             <div id="pageContent"><br/>
                 <div align="left" style="margin-left:24px;"><h2>Hello Store Manager, what would you like to do today?</h2>
                     <a href="inventory_list.php">Manage Inventory</a><br/>
-                    <a href="#">Manage Blah Blah</a><br/>
+                    
                 </div>
                 <br />
             </div>

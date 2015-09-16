@@ -1,3 +1,8 @@
+<?php
+//Script Error Reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
 <?php 
 session_start();
 if(!isset($_SESSION["manager"])){
@@ -19,11 +24,7 @@ if($existCount ==0){//evaluate the count
     exit();
 }
 ?>
-<?php
-//Script Error Reporting
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-?>
+
 <?php 
 // Parse the form data and add inventory item to the system
 if (isset($_POST['product_name'])) {
@@ -34,12 +35,13 @@ if (isset($_POST['product_name'])) {
 	$category = mysqli_real_escape_string($connection,$_POST['category']);
 	$subcategory = mysqli_real_escape_string($connection,$_POST['subcategory']);
 	$details = mysqli_real_escape_string($connection,$_POST['details']);
+        $newname = "$pid.jpg";
 	// See if that product name is an identical match to another product in the system
-	$sql = mysqli_query($connection,"UPDATE products SET product_name='$product_name', details='$details', category='$category', subcategory='$subcategory', price='$price' 
-        WHERE id='$pid'");
+	$sql = mysqli_query($connection,"UPDATE products SET product_name='$product_name', details='$details', category='$category', subcategory='$subcategory', price='$price', 
+       picurl1='inventory_images/$pid.jpg'  WHERE id='$pid'");
         if($_FILES['fileField']['tmp_name']!=""){
             // Place image in the folder 
-            $newname = "$pid.jpg";
+            
             $host= getenv('HTTP_HOST');
             move_uploaded_file( $_FILES['fileField']['tmp_name'], "../inventory_images/$newname");
             $sql = mysqli_query($connection,"UPDATE PRODUCTS  SET picurl1 = 'inventory_images/$newname' WHERE id='$pid'"); 
